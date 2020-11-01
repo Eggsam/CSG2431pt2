@@ -1,0 +1,4 @@
+	$cancel_message = "We regret to inform you that the '".$concert_date."' concert featuring '".$band_name."' at '".$venue_name."' has been cancelled.".
+	$message_query = "UPDATE attendee SET message = CONCAT(message , '".$cancel_message."')
+	WHERE mob_phone IN (SELECT mob_phone FROM booking WHERE concert_id = '".$concert_id."')";
+	

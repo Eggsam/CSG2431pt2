@@ -1,0 +1,16 @@
+echo '<table><tr>';
+  echo '<th>Band Name</th>';
+  echo '</tr>';
+  
+  //loop through he results and display them
+  while ($row = $results->fetch_assoc())
+  {
+    echo '<tr><td>'.$row['band_name'].'</td>';
+	
+	
+  echo '<td><a href="editBand.php?edit_id='.$row['band_id'].'">Edit</a> ';
+  echo '<a href="AdminPage.php?del_id='.$row['band_id'].'"onclick="return confirm(\Are you sure?\');">Delete</a></td></tr>';
+  }
+  
+  echo '</table>';
+?>
