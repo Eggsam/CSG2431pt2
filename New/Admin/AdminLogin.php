@@ -19,10 +19,10 @@ if ( isset($_POST['username']) )
 		echo 'Could not connect the database - Please try again later';
 		exit;
 	}
-
-	$query = "SELECT * FROM admin WHERE admin_username='".$_POST['username']."' AND admin_password='".$_POST['password']."'";
+	$query = "SELECT * FROM admin WHERE admin_name='".$_POST['username']."' AND admin_password='".$_POST['password']."'";
 
 	$results = $db->query($query);
+	echo $db->error;
 
 	if ($results->num_rows == 0)
 	{
@@ -34,14 +34,15 @@ if ( isset($_POST['username']) )
 		$user = $results->fetch_assoc();
 
 		//Set session variables then redirect to menu page
-		$_SESSION['mob_phone'] = $user['username'];
-		$_SESSION['level'] = $user['level'];
+		$_SESSION['user'] = $user['mob_phone'];
+		$_SESSION['admin'] = $user['admin_name'];
 		header('Location: AdminPage.php');
 		exit;
 	}
 }
+	
 ?>
-<!DOCTYPE html>
+
 <html>
 <h1>Admin Login</h1>
 <form method="post" action="Adminlogin.php">
@@ -66,6 +67,6 @@ if ( isset($_POST['username']) )
    <tr>
      <td>
        <input type="reset" name="reset" value="Reset" />
-   <input type="submit" name="submit" value="Log in" /></td>
+   <input type="submit" name="submit" value="submit" /></td>
  </tr>
 </table>

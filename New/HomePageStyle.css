@@ -1,30 +1,30 @@
 body{
-  background-color: #EEEEEE;
+  background-color: #white;
 }
 #container
 {
-  background-color: #38E60D;
+  background-color: #ffdfa8;
   width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 #header{
-  background-color: #66CCFF;
+  background-color: #a8c8ff;
   color: white;
   text-align: center;
 }
 #nav{
   width: 180px;
   float: left;
-  background-color:#F7ECC5;
+  background-color:#ffdfa8;
 }
 #main{
   width: 600px;
   height: 330px;
   height: 330px;
   float: right;
-  background-color: #F5E4A7;
+  background-color: #ffdfa8;
 }
 #footer{
   float: right;

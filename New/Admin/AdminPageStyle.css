@@ -5,7 +5,7 @@ body{
 {
  background-color:#bcade6;
   width: 800px;
-  height: 1500px;
+  height: 2400px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid grey;
@@ -13,27 +13,27 @@ body{
 }
 
 #header{
-  background-color: #e6d8ad;
+  background-color: #fffca8;
   border: 1px solid grey;
   text-align: center;
 }
 #nav{
   width: 100px;
   border: 1px solid grey;
-  background-color:#ADD8E6;
+  background-color:#a8ffd0;
   
 }
 #main{
   width: 700px;
   float: right;
-  background-color: #e6bbad;
+  background-color: #ffa8d6;
   border: 1px solid grey;
 }
 #bookings{
   width: 700px;
   float: right;
   clear: both;
-  background-color:#e6bbad;
+  background-color:#ffa8d6;
   
   border: 1px solid grey;
 }

@@ -39,7 +39,7 @@
       exit;
   }
   else {
-    $query = "INSERT INTO attendee VALUES ('".$mobilephone."','".$firstname."', '".$surname."','".$password."', '".$DOB."'  )";
+    $query = "INSERT INTO attendee VALUES ('".$mobilephone."','".$firstname."', '".$surname."','".$password."', '".$DOB."' ,NULL )";
 	echo $query;
     $result = $db->query($query);
 
@@ -98,7 +98,7 @@
     </tr>
     <tr><td><br></td></tr>
     <tr style="background-color: #FFFFFF;">
-      <td><a href="/new/Homepage.php">Homepage</a></td>
+      <td><a href="../Homepage.php">Homepage</a></td>
     </tr>
   </table>
 </body>

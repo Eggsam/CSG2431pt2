@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 08:24 AM
+-- Generation Time: Oct 22, 2020 at 11:23 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `assignmentone`
 --
-CREATE DATABASE IF NOT EXISTS `assignmentone` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `assignmentone`;
 
 -- --------------------------------------------------------
 
@@ -41,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_password`) VALUES
-(1, 'admin', 'Longcomplexpassword!');
+(1, 'admin', 'Long');
 
 -- --------------------------------------------------------
 
@@ -120,7 +118,9 @@ CREATE TABLE `band` (
 
 INSERT INTO `band` (`band_id`, `band_name`) VALUES
 (12451, 'no'),
+(12464, 'old name'),
 (12415, 'TEST'),
+(12468, 'testest'),
 (12463, 'Very new band'),
 (12417, 'work'),
 (12414, 'yes band');
@@ -136,6 +136,16 @@ CREATE TABLE `booking` (
   `mob_phone` varchar(15) NOT NULL,
   `concert_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `mob_phone`, `concert_id`) VALUES
+(1, '00 7103 3559', 3),
+(53, '11111', 13),
+(55, 'a2141', 3),
+(65, 'SELECT mob_phon', 3);
 
 -- --------------------------------------------------------
 
@@ -155,13 +165,16 @@ CREATE TABLE `concert` (
 --
 
 INSERT INTO `concert` (`concert_id`, `band_id`, `venue_id`, `concert_date`) VALUES
-(1, 12463, 342, '2018-06-12 19:30:00'),
 (3, 12463, 143, '2018-06-12 19:30:00'),
-(4, 12451, 590, '2018-06-12 19:30:00'),
-(5, 12415, 342, '2018-06-14 22:30:00'),
-(6, 12415, 342, '2018-06-14 22:30:00'),
-(7, 12415, 342, '2018-06-14 22:30:00'),
-(8, 12463, 153, '2018-06-13 10:33:00');
+(9, 12451, 621, '2018-06-22 07:30:00'),
+(10, 12468, 143, '2018-06-22 08:08:00'),
+(11, 12417, 621, '2019-11-11 08:09:00'),
+(12, 12464, 621, '2020-10-18 18:18:00'),
+(13, 12451, 621, '0000-00-00 00:00:00'),
+(14, 12464, 147, '0000-00-00 00:00:00'),
+(15, 12464, 147, '0000-00-00 00:00:00'),
+(16, 12451, 621, '0000-00-00 00:00:00'),
+(17, 12451, 621, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -179,12 +192,10 @@ CREATE TABLE `venue` (
 --
 
 INSERT INTO `venue` (`venue_id`, `venue_name`) VALUES
-(590, 'Kurnool'),
-(342, 'Montgomery'),
-(621, 'New Westminster'),
-(153, 'Priolo Gargallo'),
+(621, 'Old Westminster'),
 (147, 'Rae Bareli'),
-(143, 'Recogne');
+(143, 'Recogne'),
+(0, 'test');
 
 --
 -- Indexes for dumped tables
@@ -250,12 +261,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `band`
 --
 ALTER TABLE `band`
-  MODIFY `band_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12464;
+  MODIFY `band_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12469;
 --
 -- AUTO_INCREMENT for table `concert`
 --
 ALTER TABLE `concert`
-  MODIFY `concert_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `concert_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Constraints for dumped tables
 --
@@ -264,13 +275,13 @@ ALTER TABLE `concert`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `con` FOREIGN KEY (`concert_id`) REFERENCES `concert` (`concert_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `mob` FOREIGN KEY (`mob_phone`) REFERENCES `attendee` (`mob_phone`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `con` FOREIGN KEY (`concert_id`) REFERENCES `concert` (`concert_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `concert`
 --
 ALTER TABLE `concert`
+  ADD CONSTRAINT `Band` FOREIGN KEY (`band_id`) REFERENCES `band` (`band_id`),
   ADD CONSTRAINT `venue` FOREIGN KEY (`venue_id`) REFERENCES `venue` (`venue_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

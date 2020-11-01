@@ -8,12 +8,11 @@
     exit;
 }	
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Free Gigs</title>
-  <link rel="stylesheet" type="text/css" href="HomePageStyle.css" />
+<title>Free Gigs</title>
+ <link rel="stylesheet" type="text/css" href="HomePageStyle.css" />
 </head>
 <body>
   <div id="container">
@@ -24,11 +23,11 @@
           <h2>Upcoming Concerts</h2>
 	<td>   
     <?php
-		$con_query ='SELECT concert_date, band_name, venue_name FROM concert, band, venue ';
-  
-		if ($result = $db->query($con_query)) 
+		$con_query ='SELECT concert_date,band_name,venue_name 
+		FROM concert JOIN band ON concert.band_id = band.band_id JOIN venue ON concert.venue_id = venue.venue_id';
+  		if ($result = $db->query($con_query)) 
 		{
-			  if ($row = $result->fetch_assoc()) 
+			  while ($row = $result->fetch_assoc()) 
 			{
 			    printf   ("%s  ,  %s is playing at %s ", $row["concert_date"], $row["band_name"], $row["venue_name"]);
 				echo "<br /></n>";
@@ -45,8 +44,8 @@
 	<h3><a href="login.php">Login</a></h3>
  </tr>
 		<h3>Other Links</h3>
-         <h3><a href="/new/Attendee/AttendeeRegistration_js">Register</a></h3>
-         <h3><a href="../Admin/AdminLogin.php">Admin Login</a></h3><br>
+         <h3><a href="/new/Attendee/AttendeeRegistration.php">Register</a></h3>
+         <h3><a href="Admin/AdminLogin.php">Admin Login</a></h3><br>
       </div>
       <div id="footer">
           <p>Created by Sam and Herman</p>

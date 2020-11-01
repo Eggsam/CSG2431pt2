@@ -5,14 +5,14 @@ body{
 {
  background-color:#bcade6;
   width: 800px;
-  height: 400px;
+  height: 1800px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid grey;
 }
 
 #header{
-  background-color: #e6d8ad;
+  background-color: #ffdfa8;
   color: white;
   text-align: center;
   border: 1px solid grey;
@@ -20,19 +20,20 @@ body{
 #nav{
   width: 180px;
   border: 1px solid grey;
-  background-color:#ADD8E6;
+  background-color:#b7ffa8;
 }
 #main{
   width: 600px;
+  
   float: right;
-  background-color: #e6bbad;
+  background-color: #ffa8f3;
   border: 1px solid grey;
 }
 #bookings{
-  width: 600px;
+  width: 620px;
   float: right;
   clear: both;
-  background-color:#e6bbad;
+  background-color:#ffa8f3;
   border: 1px solid grey;
 }
 #footer{
